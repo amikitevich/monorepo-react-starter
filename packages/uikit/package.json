@@ -1,0 +1,11 @@
+{
+  "name": "@project-namespace/uikit",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "node-sass": "^4.13.0",
+    "react": "^16.12.0"
+  }
+}

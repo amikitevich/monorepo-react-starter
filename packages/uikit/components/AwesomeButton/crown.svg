@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="39px" viewBox="0 0 50 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 43</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M25.6003759,4.92744272 C29.2537075,14.4441302 32.3869156,19.202474 35,19.202474 C37.454077,19.202474 41.028072,16.9985803 45.7219851,12.590793 C45.2756002,12.1392199 45,11.5184615 45,10.8333333 C45,9.45262146 46.1192881,8.33333333 47.5,8.33333333 C48.8807119,8.33333333 50,9.45262146 50,10.8333333 C50,12.2140452 48.8807119,13.3333333 47.5,13.3333333 C47.2366486,13.3333333 46.9828078,13.2926134 46.7444305,13.2171263 L39.9914551,34.202474 L10,34.202474 L3.25478907,13.2173733 C3.01663812,13.2927022 2.76306401,13.3333333 2.5,13.3333333 C1.11928813,13.3333333 0,12.2140452 0,10.8333333 C0,9.45262146 1.11928813,8.33333333 2.5,8.33333333 C3.88071187,8.33333333 5,9.45262146 5,10.8333333 C5,11.5639844 4.68655894,12.2214275 4.18680436,12.6785349 C8.42310332,17.0278276 12.0275019,19.202474 15,19.202474 C18.1842055,19.202474 21.3448943,14.4504099 24.4820666,4.94628183 C23.3498932,4.70776638 22.5,3.70313478 22.5,2.5 C22.5,1.11928813 23.6192881,0 25,0 C26.3807119,0 27.5,1.11928813 27.5,2.5 C27.5,3.67374966 26.6911151,4.65857412 25.6003759,4.92744272 Z" id="path-1"></path>
+        <polygon id="path-3" points="5 0 9.75528258 3.45491503 7.93892626 9.04508497 2.06107374 9.04508497 0.244717419 3.45491503"></polygon>
+        <rect id="path-5" x="0" y="0" width="31.6666667" height="5" rx="1"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="iPhone-8-Plus-#03-Copy-4" transform="translate(-32.000000, -148.000000)">
+            <g id="Group-43" transform="translate(32.000000, 148.000000)">
+                <g>
+                    <g id="Rectangle-50">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="Mask" fill="#FDCB50" xlink:href="#path-1"></use>
+                        <rect fill-opacity="0.05" fill="#000000" style="mix-blend-mode: multiply;" mask="url(#mask-2)" x="25" y="-2.5" width="26.6666667" height="43.3333333"></rect>
+                    </g>
+                    <g id="Rectangle-50-Copy" transform="translate(20.000000, 19.166667)">
+                        <mask id="mask-4" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <use id="Mask" fill="#F62D51" xlink:href="#path-3"></use>
+                        <rect fill-opacity="0.05" fill="#000000" style="mix-blend-mode: multiply;" mask="url(#mask-4)" x="5" y="-21.6666667" width="26.6666667" height="43.3333333"></rect>
+                    </g>
+                    <g id="Rectangle-50-Copy-2" transform="translate(9.166667, 33.333333)">
+                        <mask id="mask-6" fill="white">
+                            <use xlink:href="#path-5"></use>
+                        </mask>
+                        <use id="Mask" fill="#64798A" xlink:href="#path-5"></use>
+                        <rect fill-opacity="0.05" fill="#000000" style="mix-blend-mode: multiply;" mask="url(#mask-6)" x="15.8333333" y="-35.8333333" width="26.6666667" height="43.3333333"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
