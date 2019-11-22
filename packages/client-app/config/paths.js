@@ -72,7 +72,7 @@ module.exports = {
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
   /* rewrite cra-config */
-  sharedPackages: [path.resolve(__dirname, '../../uikit')],
+  sharedPackages: [path.resolve(__dirname, '../../uikit'), path.resolve(__dirname, '../../shared')],
   /* end rewrite cra-config */
   appTsConfig: resolveApp('tsconfig.json'),
   appJsConfig: resolveApp('jsconfig.json'),

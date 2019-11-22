@@ -1,10 +1,11 @@
 {
-  "name": "@project-namespace/client-app",
+  "name": "@foretell/client-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@babel/core": "7.6.0",
-    "@project-namespace/uikit": "^1.0.0",
+    "@foretell/shared": "0.1.0",
+    "@foretell/uikit": "^1.0.0",
     "@svgr/webpack": "4.3.2",
     "@types/jest": "24.0.23",
     "@types/node": "12.12.11",

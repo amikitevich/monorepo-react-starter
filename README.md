@@ -9,7 +9,7 @@ The project uses:
 
 ## Get Started
 * clone or download the repository.
-* find&replace @project-namespace to your own namespace
+* find&replace @foretell to your own namespace
 * lerna bootstrap
 * yarn run:client-app
 

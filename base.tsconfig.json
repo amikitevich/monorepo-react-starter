@@ -11,8 +11,15 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react"
-  }
+    "jsx": "react",
+    "baseUrl": ".",
+    "declaration": true,
+    "declarationMap": true,
+    "composite": true
+  },
+  "paths": {
+    "@foretell/*": ["packages/*/src"]
+  },
+  "include": ["packages/*"]
 }

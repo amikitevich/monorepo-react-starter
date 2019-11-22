@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <meta name="description" content="Foretell client app"/>
+  <link rel="apple-touch-icon" href="logo192.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <title>Foretell Client App</title>
+  <!-- START GOOGLE SDK -->
+  <script src="https://apis.google.com/js/api:client.js"></script>
+  <script>
+    gapi.load('auth2', function(){
+      // Retrieve the singleton for the GoogleAuth library and set up the client.
+      window.googleApiAuth2 = gapi.auth2.init({
+        client_id: '291644301516-36scscm98fv11mtetmq11hnvcooom0v5.apps.googleusercontent.com',
+        cookiepolicy: 'single_host_origin',
+        // Request scopes in addition to 'profile' and 'email'
+        //scope: 'additional_scope'
+      });
+    });
+  </script>
+  <!-- END GOOGLE SDK   -->
+  <style>
+    body {
+      margin: 0;
+      --viewport-height: 100vh;
+      background: url("%PUBLIC_URL%/loading_background.svg") no-repeat center/cover #032E61;
+      position: relative;
+    }
+
+    #root {
+      display: flex;
+      flex-direction: column;
+      -webkit-overflow-scrolling: touch;
+      position: relative;
+      min-height: var(--viewport-height);
+      z-index: 0;
+    }
+    #modal-root {
+      position: absolute;
+      top: 0;
+      z-index: 1;
+    }
+    .preloader {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .preloader .logo-container {
+      position: relative;
+    }
+    .preloader .logo-container .shine {
+      position: absolute;
+      bottom: 23px;
+      right: -57px;
+    }
+  </style>
+</head>
+<body>
+<!-- START Facebook SDK -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '518714172028717',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v5.0'
+    });
+    window.fbApiInit = true;
+  };
+</script>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+<!-- END FACEBOOK SDK -->
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<script>
+  const calcViewportHeight = () => window.visualViewport
+    ? window.visualViewport.height
+    : Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+  window.history.scrollRestoration = 'manual';
+  document.body.style.setProperty('--viewport-height', `${calcViewportHeight()}px`);
+
+  const setViewportHeight = () => {
+    const updatedHeight = calcViewportHeight();
+    if (getComputedStyle(document.body).getPropertyValue('--viewport-height') === `${updatedHeight}px`) return;
+    document.body.style.setProperty('--viewport-height', `${updatedHeight}px`);
+  };
+  window.addEventListener('resize', setViewportHeight);
+  window.addEventListener('scroll', setViewportHeight);
+</script>
+<div id="root">
+  <div class="preloader">
+    <div class="logo-container">
+      <!-- instant loading for both images -->
+      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI5IiBoZWlnaHQ9IjQxIiB2aWV3Qm94PSIwIDAgMTI5IDQxIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNOS4zNTA0MyA3Ljk2MDU2VjExLjQ4NzJIMTMuNzMwNlYxNi41OTYySDkuMzUwNDNWNDAuNDY4OEgzLjMwMjE1VjE2LjU5NjJIMFYxMS40ODcySDMuMzAyMTVWNy4xNjkzM0MzLjMwMjE1IDIuNDU1ODYgNS42Mzk3NiAwLjEyNzM5MiAxMC40Mjg0IDAuMTI3MzkyQzExLjU1NjYgMC4xMDA3NjUgMTIuNjc4OCAwLjI5NjY3OCAxMy43MzA2IDAuNzAzODU3VjUuODEyOTNDMTMuMDcwNSA1LjU3ODE2IDEyLjM3NzMgNS40NDg0NyAxMS42NzY3IDUuNDI4NjJDOS45NzQ1NCA1LjQyODYyIDkuNDA3MTYgNi4xMTgxMiA5LjQwNzE2IDcuOTI2NjQiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xNi4xMjUgMzEuNTg0N1YyMC4yODE0QzE2LjEyNSAxNC4yNjgxIDE5LjMyNSAxMC44NTQ1IDI1LjAyMTUgMTAuODU0NUMzMC43MTggMTAuODU0NSAzMy45MDY3IDE0LjI0NTUgMzMuOTA2NyAyMC4yODE0VjMxLjU4NDdDMzMuOTA2NyAzNy41OTggMzAuNzE4IDQxLjAwMDMgMjUuMDIxNSA0MS4wMDAzQzE5LjMyNSA0MS4wMDAzIDE2LjEyNSAzNy42MDkzIDE2LjEyNSAzMS41ODQ3Wk0yNy44Njk4IDMyLjE0OTlWMTkuNzE2M0MyNy44Njk4IDE3LjcyNjkgMjcuMjQ1NyAxNi4yMDA5IDI1LjAyMTUgMTYuMjAwOUMyMi43OTc0IDE2LjIwMDkgMjIuMTczMyAxNy43MjY5IDIyLjE3MzMgMTkuNzE2M1YzMi4xNDk5QzIyLjE3MzMgMzQuMTk1NyAyMi44NTQxIDM1LjY2NTIgMjUuMDIxNSAzNS42NjUyQzI3LjE4ODkgMzUuNjY1MiAyNy44Njk4IDM0LjE5NTcgMjcuODY5OCAzMi4xNDk5WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTUwLjcyMzggMTEuMjYxNVYxNy4xMDUzQzUwLjIxNzYgMTYuOTkwNCA0OS42OTk4IDE2LjkzMzUgNDkuMTgwNiAxNi45MzU4QzQ1Ljc3NjMgMTYuOTM1OCA0NC4wNTE1IDE5LjI2NDMgNDQuMDUxNSAyMy43MTc3VjQwLjQ2OTJIMzguMDE0NVYxMS40ODc2SDQzLjI1NzFMNDMuMzcwNiAxNi4zNzA2QzQ0LjE2NDkgMTIuNzMxIDQ2LjA0ODYgMTAuOTIyNSA0OS4wNDQ0IDEwLjkyMjVDNDkuNjM0NiAxMC44OTY3IDUwLjIyMjQgMTEuMDEzIDUwLjc1NzkgMTEuMjYxNSIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTcwLjg0MzIgMjAuMzM3N1YyNy4yNjY2SDU5LjAwNzZWMzIuMTQ5NkM1OS4wMDc2IDM0LjcwNDEgNjAuMDI4OSAzNS42NjQ5IDYyLjAyNjEgMzUuNjY0OUM2NC4wMjMzIDM1LjY2NDkgNjUuMDQ0NiAzNC43MDQxIDY1LjA0NDYgMzIuMTQ5NlYzMS4wMTkySDcwLjg2NTlWMzEuNTM5MkM3MC44NjU5IDM3LjU1MjUgNjcuNzIyNiA0MC45NTQ4IDYxLjkxMjYgNDAuOTU0OEM1Ni4xMDI2IDQwLjk1NDggNTIuOTcwNyAzNy41NjM4IDUyLjk3MDcgMzEuNTM5MlYyMC4yMzU5QzUyLjk3MDcgMTQuMjIyNiA1Ni4xMDI2IDEwLjgyMDMgNjEuOTEyNiAxMC44MjAzQzY3LjcyMjYgMTAuODIwMyA3MC44NjU5IDE0LjIxMTMgNzAuODY1OSAyMC4yMzU5TDcwLjg0MzIgMjAuMzM3N1pNNjQuOTA4NCAyMi40OTY2VjE5Ljc3MjVDNjQuOTA4NCAxNy4yMTggNjMuNzczNiAxNi4yNTcyIDYxLjk0NjcgMTYuMjU3MkM2MC4xMTk3IDE2LjI1NzIgNTkuMDA3NiAxNy4yMTggNTkuMDA3NiAxOS43NzI1VjIyLjQ5NjZINjQuOTA4NFoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik04Mi41MTk5IDE2LjU5NjVWMzMuMTY3MUM4Mi41MTk5IDM0Ljk4NjkgODMuMTQ0IDM1LjY2NTEgODQuODU3NSAzNS42NjUxQzg1LjU1NTIgMzUuNjUzOSA4Ni4yNDczIDM1LjUzOTYgODYuOTExNCAzNS4zMjZWNDAuNDY5Qzg1Ljg1NyA0MC44NjU5IDg0LjczNjEgNDEuMDU3OCA4My42MDkyIDQxLjAzNDJDNzguODIwNSA0MS4wMzQyIDc2LjQ4MjkgMzguNzA1NyA3Ni40ODI5IDM0LjAwMzZWMTYuNTk2NUg3My4xODA4VjExLjQ4NzVINzYuNzY2Nkw3Ny4zMzQgMy42NTQzSDgyLjUxOTlWMTEuNDg3NUg4Ni45MTE0VjE2LjU5NjVIODIuNTE5OVoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMDcuNTk4IDIwLjMzNzdWMjcuMjY2Nkg5NS43Mzk3VjMyLjE0OTZDOTUuNzM5NyAzNC43MDQxIDk2Ljc3MjMgMzUuNjY0OSA5OC43NTgxIDM1LjY2NDlDMTAwLjc0NCAzNS42NjQ5IDEwMS43ODggMzQuNzA0MSAxMDEuNzg4IDMyLjE0OTZWMzEuMDE5MkgxMDcuNTk4VjMxLjUzOTJDMTA3LjU5OCAzNy41NTI1IDEwNC40NjYgNDAuOTU0OCA5OC42NDQ3IDQwLjk1NDhDOTIuODIzMyA0MC45NTQ4IDg5LjcwMjggMzcuNTYzOCA4OS43MDI4IDMxLjUzOTJWMjAuMjM1OUM4OS43MDI4IDE0LjIyMjYgOTIuODM0NyAxMC44MjAzIDk4LjY0NDcgMTAuODIwM0MxMDQuNDU1IDEwLjgyMDMgMTA3LjU5OCAxNC4yMTEzIDEwNy41OTggMjAuMjM1OVYyMC4zMzc3Wk0xMDEuNjc0IDIyLjQ5NjZWMTkuNzcyNUMxMDEuNjc0IDE3LjIxOCAxMDAuNTQgMTYuMjU3MiA5OC43MDE0IDE2LjI1NzJDOTYuODYzMSAxNi4yNTcyIDk1LjczOTcgMTcuMjE4IDk1LjczOTcgMTkuNzcyNVYyMi40OTY2SDEwMS42NzRaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMTE3LjYyOSAwLjcwNDEwMkgxMTEuNTkyVjQwLjQzNTFIMTE3LjYyOVYwLjcwNDEwMloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMjguMzQxIDAuNzA0MTAySDEyMi4zMDRWNDAuNDM1MUgxMjguMzQxVjAuNzA0MTAyWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==" alt="logo">
+      <img class="shine" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzgiIGhlaWdodD0iNzciIHZpZXdCb3g9IjAgMCA3OCA3NyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTM4Ljc3MTMgMEMzOC43NzEzIDAgMzguNDQyMiAxNS4wNzg2IDM3Ljc1IDE4LjM2NzhDMzUuNDgwNSAyOS4zMjA3IDMxLjMxNTkgMzQuMjcxNSAxOS4zNDQyIDM2LjcxM0MxNi4wMzA3IDM3LjM3OTkgMC43NjgxODggMzcuNzMwMyAwLjc2ODE4OCAzNy43MzAzVjM5LjE5OTdDMC43NjgxODggMzkuMTk5NyAxNi4wMzA3IDM5LjU1MDEgMTkuMzQ0MiA0MC4yMTdDMzEuMzE1OSA0Mi42NTg1IDM1LjQzNTEgNDcuNjIwNyAzNy43NSA1OC41NjIyQzM4LjQ0MjIgNjEuODUxNSAzOC43NzEzIDc2LjkzIDM4Ljc3MTMgNzYuOTNIMzkuOTk2OEMzOS45OTY4IDc2LjkzIDQwLjMyNTkgNjEuODUxNSA0MS4wMTgxIDU4LjU2MjJDNDMuMjg3NyA0Ny42MjA3IDQ3LjQ1MjIgNDIuNjU4NSA1OS40MjQgNDAuMjE3QzYyLjczNzUgMzkuNTUwMSA3OCAzOS4xOTk3IDc4IDM5LjE5OTdWMzcuNzMwM0M3OCAzNy43MzAzIDYyLjczNzUgMzcuMzc5OSA1OS40MjQgMzYuNzEzQzQ3LjQ1MjIgMzQuMjcxNSA0My4zMzMxIDI5LjMyMDcgNDEuMDE4MSAxOC4zNjc4QzQwLjMyNTkgMTUuMDc4NiAzOS45OTY4IDAgMzkuOTk2OCAwTDM4Ljc3MTMgMFoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=" alt="shine">
+    </div>
+  </div>
+</div>
+<div id="modal-root"></div>
+</body>
+</html>

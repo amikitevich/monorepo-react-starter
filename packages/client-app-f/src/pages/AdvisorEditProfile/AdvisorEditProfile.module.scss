@@ -1,0 +1,12 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.form_wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.terms {
+  padding: 18px 16px 34px;
+}

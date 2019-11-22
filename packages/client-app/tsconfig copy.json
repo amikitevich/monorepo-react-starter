@@ -1,0 +1,25 @@
+{
+  "include": ["src"],
+  "extends": "../../base.tsconfig.json",
+  "compilerOptions": {
+    // to override config from tsconfig.base.json
+    "outDir": "lib",
+    "rootDir": "src",
+    // for references
+    "baseUrl": "src",
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "jsx": "react"
+  },
+  "references": [{ "path": "../shared" }]
+}
